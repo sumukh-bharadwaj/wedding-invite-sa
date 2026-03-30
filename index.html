@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sumukh & Adithi | The Wedding</title>
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.ico">
+  <meta property="og:site_name" content="Sumukh & Adithi | Wedding" />
+  <meta property="og:type" content="website" />
+  <meta name="title" property="og:title" content="Sumukh & Adithi | Wedding" />
+  <meta name="description" property="og:description" content="A wedding celebration" />
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="theme-color" content="#f8f3ea">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ============================================================
+       CUSTOM FONTS
+    ============================================================ */
+    @font-face {
+      font-family: 'Quiche Stencil';
+      src: url('assets/fonts/quiche-stencil.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* ============================================================
+       ROOT & RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #f8f3ea;
+      --cream-deep: #ede4d0;
+      --gold:       #c09a50;
+      --gold-light: #dfc07a;
+      --gold-pale:  #f0dba8;
+      --rose:       #c47b8a;
+      --rose-light: #e8aab8;
+      --rose-pale:  #f5d5dc;
+      --text-dark:  #2a1f18;
+      --text-mid:   #5a4538;
+      --text-light: #8a7060;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── Floating RSVP ── */
+    .rsvp-float {
+      position: fixed;
+      bottom: 24px; right: 20px;
+      z-index: 1000;
+      background: var(--cream);
+      color: var(--text-dark);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 11px 22px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      animation: floatIn 1s 2s both ease-out;
+    }
+    .rsvp-float:hover { background: var(--gold); color: var(--cream); transform: translateY(-2px); }
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── All sections same height ── */
+    section {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ── Petal system ── */
+    .petals {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 3;
+    }
+    .petal {
+      position: absolute;
+      top: -60px;
+      opacity: 0;
+      animation: petalFall linear infinite;
+      will-change: transform, opacity;
+    }
+    .petal:nth-child(1)  { left:  4%; animation-duration: 9s;  animation-delay: 0s;    width: 14px; }
+    .petal:nth-child(2)  { left: 12%; animation-duration: 13s; animation-delay: 1.5s;  width: 10px; }
+    .petal:nth-child(3)  { left: 22%; animation-duration: 10s; animation-delay: 3s;    width: 16px; }
+    .petal:nth-child(4)  { left: 33%; animation-duration: 14s; animation-delay: 0.8s;  width: 12px; }
+    .petal:nth-child(5)  { left: 44%; animation-duration: 11s; animation-delay: 2.2s;  width: 18px; }
+    .petal:nth-child(6)  { left: 55%; animation-duration: 12s; animation-delay: 4s;    width: 11px; }
+    .petal:nth-child(7)  { left: 65%; animation-duration:  9s; animation-delay: 1s;    width: 14px; }
+    .petal:nth-child(8)  { left: 74%; animation-duration: 15s; animation-delay: 2.8s;  width: 16px; }
+    .petal:nth-child(9)  { left: 84%; animation-duration: 10s; animation-delay: 0.4s;  width: 12px; }
+    .petal:nth-child(10) { left: 93%; animation-duration: 13s; animation-delay: 3.5s;  width: 15px; }
+    .petal:nth-child(11) { left: 18%; animation-duration: 11s; animation-delay: 5s;    width: 10px; }
+    .petal:nth-child(12) { left: 50%; animation-duration: 16s; animation-delay: 1.2s;  width: 13px; }
+
+    @keyframes petalFall {
+      0%   { opacity: 0;   transform: translateY(-20px)  rotate(0deg)   translateX(0px); }
+      8%   { opacity: 0.9; }
+      50%  { opacity: 0.7; transform: translateY(55vh)   rotate(200deg) translateX(30px); }
+      92%  { opacity: 0.5; }
+      100% { opacity: 0;   transform: translateY(108vh)  rotate(400deg) translateX(-20px); }
+    }
+
+    /* ── Hero ── */
+    .hero { background: var(--cream); }
+
+    /* The SVG invitation as full background */
+    .hero-svg-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 0;
+      /* On phone we use the portrait SVG via CSS; landscape uses website SVG */
+    }
+
+    /* Animated leaf overlays extracted conceptually — we animate the SVG container */
+    .hero-svg-bg {
+      animation: subtlePan 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes subtlePan {
+      from { transform: scale(1.02) translateY(0px); }
+      to   { transform: scale(1.06) translateY(-8px); }
+    }
+
+    /* Floating leaf particles layered on top */
+    .leaf-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .leaf {
+      position: absolute;
+      opacity: 0;
+      animation: leafFloat linear infinite;
+      will-change: transform, opacity;
+    }
+
+    .leaf svg { display: block; }
+
+    /* Generate varied leaf animations */
+    .leaf:nth-child(1)  { left: 5%;  animation-duration: 12s; animation-delay: 0s;    width: 28px; }
+    .leaf:nth-child(2)  { left: 15%; animation-duration: 16s; animation-delay: 2s;    width: 20px; }
+    .leaf:nth-child(3)  { left: 28%; animation-duration: 10s; animation-delay: 4s;    width: 24px; }
+    .leaf:nth-child(4)  { left: 42%; animation-duration: 18s; animation-delay: 1s;    width: 32px; }
+    .leaf:nth-child(5)  { left: 57%; animation-duration: 14s; animation-delay: 3s;    width: 22px; }
+    .leaf:nth-child(6)  { left: 68%; animation-duration: 11s; animation-delay: 5s;    width: 26px; }
+    .leaf:nth-child(7)  { left: 80%; animation-duration: 17s; animation-delay: 0.5s;  width: 18px; }
+    .leaf:nth-child(8)  { left: 90%; animation-duration: 13s; animation-delay: 2.5s;  width: 30px; }
+    .leaf:nth-child(9)  { left: 35%; animation-duration: 15s; animation-delay: 6s;    width: 20px; }
+    .leaf:nth-child(10) { left: 72%; animation-duration: 19s; animation-delay: 1.5s;  width: 24px; }
+
+    @keyframes leafFloat {
+      0%   { opacity: 0;   transform: translateY(110vh) rotate(0deg)   translateX(0px); }
+      10%  { opacity: 0.7; }
+      50%  { opacity: 0.5; transform: translateY(50vh)  rotate(180deg) translateX(20px); }
+      90%  { opacity: 0.6; }
+      100% { opacity: 0;   transform: translateY(-10vh) rotate(360deg) translateX(-15px); }
+    }
+
+    /* ── Petal system ── */
+    .petals {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 3;
+    }
+    .petal {
+      position: absolute;
+      top: -60px;
+      opacity: 0;
+      animation: petalFall linear infinite;
+      will-change: transform, opacity;
+    }
+    .petal:nth-child(1)  { left:  4%; animation-duration: 9s;  animation-delay: 0s;    width: 14px; }
+    .petal:nth-child(2)  { left: 12%; animation-duration: 13s; animation-delay: 1.5s;  width: 10px; }
+    .petal:nth-child(3)  { left: 22%; animation-duration: 10s; animation-delay: 3s;    width: 16px; }
+    .petal:nth-child(4)  { left: 33%; animation-duration: 14s; animation-delay: 0.8s;  width: 12px; }
+    .petal:nth-child(5)  { left: 44%; animation-duration: 11s; animation-delay: 2.2s;  width: 18px; }
+    .petal:nth-child(6)  { left: 55%; animation-duration: 12s; animation-delay: 4s;    width: 11px; }
+    .petal:nth-child(7)  { left: 65%; animation-duration:  9s; animation-delay: 1s;    width: 14px; }
+    .petal:nth-child(8)  { left: 74%; animation-duration: 15s; animation-delay: 2.8s;  width: 16px; }
+    .petal:nth-child(9)  { left: 84%; animation-duration: 10s; animation-delay: 0.4s;  width: 12px; }
+    .petal:nth-child(10) { left: 93%; animation-duration: 13s; animation-delay: 3.5s;  width: 15px; }
+    .petal:nth-child(11) { left: 18%; animation-duration: 11s; animation-delay: 5s;    width: 10px; }
+    .petal:nth-child(12) { left: 50%; animation-duration: 16s; animation-delay: 1.2s;  width: 13px; }
+
+    @keyframes petalFall {
+      0%   { opacity: 0;   transform: translateY(-20px)  rotate(0deg)   translateX(0px); }
+      8%   { opacity: 0.9; }
+      50%  { opacity: 0.7; transform: translateY(55vh)   rotate(200deg) translateX(30px); }
+      92%  { opacity: 0.5; }
+      100% { opacity: 0;   transform: translateY(108vh)  rotate(400deg) translateX(-20px); }
+    }
+
+    /* Hero text content */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: clamp(16px, 5vw, 40px);
+      /* Subtle vignette so text pops over SVG */
+      text-shadow: 0 1px 12px rgba(245,240,232,0.6), 0 0 40px rgba(245,240,232,0.4);
+    }
+
+    .hero-content h1 {
+      font-family: 'Quiche Stencil', serif;
+      font-style: normal;
+      font-size: clamp(2.4rem, 9vw, 6rem);
+      font-weight: 200;
+      color: var(--green);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      animation: fadeUp 1.2s 0.3s both ease-out;
+    }
+
+    .hero-amp { color: var(--gold); font-style: normal; }
+
+
+    .hero-date {
+      margin-top: 16px;
+      font-size: clamp(0.9rem, 3vw, 1.3rem);
+      letter-spacing: 0.15em;
+      color: var(--text-mid);
+      font-weight: 500;
+      animation: fadeUp 1.2s 0.6s both ease-out;
+    }
+
+    .hero-divider {
+      margin: 20px auto;
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      animation: expandWidth 1.5s 0.9s both ease-out;
+    }
+
+    @keyframes expandWidth {
+      from { width: 0; opacity: 0; }
+      to   { width: 60px; opacity: 1; }
+    }
+
+    .hero-subtitle {
+      font-style: italic;
+      font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+      color: var(--green-mid);
+      letter-spacing: 0.05em;
+      animation: fadeUp 1.2s 1s both ease-out;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      bottom: clamp(20px, 4vh, 36px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: var(--green);
+      font-size: 1.4rem;
+      text-decoration: none;
+      animation: bounceDown 2s 1.5s infinite ease-in-out, fadeUp 1s 1.5s both;
+      opacity: 0.8;
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Welcome ── */
+    .welcome { background: var(--cream); }
+    .welcome::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('Cream_and_Green_Indian_Traditional_Wedding_Invitation.svg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .welcome-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      padding: 0 clamp(24px, 6vw, 60px);
+    }
+
+    @keyframes wLeafDrift {
+      0%, 100% { opacity: 0;   transform: translateY(0px)   rotate(0deg); }
+      20%       { opacity: 0.5; }
+      50%       { opacity: 0.7; transform: translateY(-12px) rotate(8deg); }
+      80%       { opacity: 0.5; }
+    }
+    .w-leaf:nth-child(2) { animation-name: wLeafDriftR; }
+    .w-leaf:nth-child(4) { animation-name: wLeafDriftR; }
+    @keyframes wLeafDriftR {
+      0%, 100% { opacity: 0;   transform: scaleX(-1) translateY(0px)   rotate(0deg); }
+      20%       { opacity: 0.5; }
+      50%       { opacity: 0.7; transform: scaleX(-1) translateY(-12px) rotate(-8deg); }
+      80%       { opacity: 0.5; }
+    }
+
+    .welcome-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: clamp(0.65rem, 2vw, 0.8rem);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .welcome h2 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.6rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--green);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .welcome h2 .accent { color: var(--gold); font-style: normal; }
+
+    .gold-rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px auto;
+      max-width: 320px;
+    }
+    .gold-rule::before, .gold-rule::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .gold-rule .diamond {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .welcome-location {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: var(--green);
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .welcome-address {
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .maps-link {
+      display: inline-block;
+      font-size: clamp(0.7rem, 2vw, 0.82rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+    .maps-link:hover { color: var(--gold); }
+
+    /* ============================================================
+       EVENTS SECTION
+    ============================================================ */
+    .events-section {
+      position: relative;
+      background: var(--green);
+      padding: clamp(50px, 8vw, 100px) clamp(16px, 5vw, 60px);
+      overflow: hidden;
+    }
+
+    /* Subtle SVG texture overlay */
+    .events-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('Cream_and_Green_Indian_Traditional_Wedding_Invitation__Website_.svg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    /* Animated border leaves on events section */
+    .events-leaf-tl, .events-leaf-br {
+      position: absolute;
+      width: clamp(60px, 14vw, 120px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .events-leaf-tl {
+      top: -10px; left: -10px;
+      animation: leafWobble 5s ease-in-out infinite;
+    }
+    .events-leaf-br {
+      bottom: -10px; right: -10px;
+      transform: rotate(180deg);
+      animation: leafWobble 5s 1.5s ease-in-out infinite;
+    }
+    @keyframes leafWobble {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50%       { transform: rotate(6deg) scale(1.05); }
+    }
+    .events-leaf-br { animation-name: leafWobbleR; }
+    @keyframes leafWobbleR {
+      0%, 100% { transform: rotate(180deg) scale(1); }
+      50%       { transform: rotate(174deg) scale(1.05); }
+    }
+
+    .events-section .section-label { color: var(--gold-light); margin-bottom: 12px; }
+
+    .events-section h2 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+      color: var(--cream);
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .events-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: clamp(16px, 3vw, 28px);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .event-card {
+      background: rgba(245, 240, 232, 0.08);
+      border: 1px solid rgba(184, 134, 11, 0.4);
+      border-radius: 2px;
+      padding: clamp(24px, 5vw, 36px) clamp(20px, 4vw, 30px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s, transform 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .event-card:hover {
+      background: rgba(245, 240, 232, 0.14);
+      transform: translateY(-3px);
+    }
+
+    /* Corner floral accent */
+    .event-card::before {
+      content: '✿';
+      position: absolute;
+      top: 8px; left: 10px;
+      color: var(--gold);
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+    .event-card::after {
+      content: '✿';
+      position: absolute;
+      bottom: 8px; right: 10px;
+      color: var(--gold);
+      font-size: 0.7rem;
+      opacity: 0.6;
+      transform: rotate(180deg);
+    }
+
+    .event-card h3 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 4vw, 1.7rem);
+      color: var(--cream);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .event-divider {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 14px;
+      opacity: 0.7;
+    }
+
+    .event-date {
+      font-size: clamp(0.78rem, 2vw, 0.9rem);
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .event-location {
+      font-size: clamp(0.78rem, 2vw, 0.88rem);
+      color: rgba(245,240,232,0.7);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .event-btn {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.65rem, 2vw, 0.75rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: transparent;
+      border: 1px solid rgba(184,134,11,0.5);
+      padding: 8px 18px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 1px;
+    }
+    .event-btn:hover {
+      background: var(--gold);
+      color: var(--green);
+      border-color: var(--gold);
+    }
+
+    /* ============================================================
+       ACCOMMODATION SECTION
+    ============================================================ */
+    .accommodation {
+      position: relative;
+      padding: clamp(60px, 10vw, 120px) clamp(20px, 6vw, 80px);
+      text-align: center;
+      background: var(--cream-dark);
+      overflow: hidden;
+    }
+
+    .accommodation::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('Cream_and_Green_Indian_Traditional_Wedding_Invitation.svg');
+      background-size: cover;
+      background-position: center bottom;
+      opacity: 0.06;
+      pointer-events: none;
+      animation: bgDrift 20s ease-in-out infinite alternate;
+    }
+    @keyframes bgDrift {
+      from { background-position: center bottom; transform: scale(1); }
+      to   { background-position: center 80%;    transform: scale(1.04); }
+    }
+
+    .accommodation-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .accommodation h2 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      color: var(--green);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .accommodation h2 .accent { color: var(--gold); }
+
+    .accommodation p {
+      font-size: clamp(0.88rem, 2.5vw, 1.05rem);
+      color: var(--text-mid);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .text-link {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      transition: color 0.2s;
+    }
+    .text-link:hover { color: var(--gold); }
+
+    /* ============================================================
+       RSVP CTA SECTION
+    ============================================================ */
+    .rsvp-section {
+      position: relative;
+      padding: clamp(70px, 12vw, 140px) clamp(20px, 6vw, 80px);
+      text-align: center;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .rsvp-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('Cream_and_Green_Indian_Traditional_Wedding_Invitation__Website_.svg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    /* Animated floating petals in RSVP section */
+    .petal-left, .petal-right {
+      position: absolute;
+      bottom: 0;
+      width: clamp(70px, 18vw, 160px);
+      opacity: 0.25;
+      animation: petalSway 6s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .petal-left  { left: 0;  transform-origin: bottom left; }
+    .petal-right { right: 0; transform-origin: bottom right; transform: scaleX(-1); animation-direction: alternate-reverse; }
+
+    @keyframes petalSway {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(5deg); }
+    }
+    .petal-right { animation-name: petalSwayR; }
+    @keyframes petalSwayR {
+      from { transform: scaleX(-1) rotate(0deg); }
+      to   { transform: scaleX(-1) rotate(-5deg); }
+    }
+
+    .rsvp-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .rsvp-inner h2 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6vw, 3.2rem);
+      color: var(--green);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .rsvp-inner h2 .accent { color: var(--gold); }
+
+    .rsvp-inner p {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      color: var(--text-mid);
+      font-style: italic;
+      margin-bottom: 36px;
+    }
+
+    .rsvp-btn {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--cream);
+      background: var(--green);
+      border: 1.5px solid var(--gold);
+      padding: clamp(14px, 3vw, 18px) clamp(30px, 6vw, 50px);
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      border-radius: 2px;
+    }
+    .rsvp-btn:hover {
+      background: var(--gold);
+      color: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    .rsvp-deadline {
+      margin-top: 20px;
+      font-size: clamp(0.72rem, 2vw, 0.82rem);
+      color: var(--text-mid);
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+    }
+
+    /* ============================================================
+       FOOTER / GIFT NOTE
+    ============================================================ */
+    .gift-section {
+      background: var(--green);
+      color: var(--cream);
+      text-align: center;
+      padding: clamp(40px, 8vw, 80px) clamp(20px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    .gift-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('Cream_and_Green_Indian_Traditional_Wedding_Invitation__Website_.svg');
+      background-size: cover;
+      opacity: 0.03;
+    }
+    .gift-section p {
+      position: relative;
+      z-index: 1;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 4vw, 2rem);
+      line-height: 1.5;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .gift-section p .accent { color: var(--gold-light); }
+
+    /* ============================================================
+       MODAL (event details)
+    ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,20,14,0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .modal {
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      border-radius: 2px;
+      max-width: 460px;
+      width: 100%;
+      padding: clamp(28px, 6vw, 48px);
+      position: relative;
+      text-align: center;
+      animation: modalUp 0.4s ease;
+    }
+    @keyframes modalUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 18px;
+      background: none; border: none;
+      font-size: 1.3rem;
+      color: var(--text-mid);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal h3 {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .modal-divider {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin: 0 auto 18px;
+    }
+    .modal p {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .modal .detail-label {
+      font-weight: 600;
+      color: var(--green);
+      font-size: clamp(0.65rem, 2vw, 0.75rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL UTILITY
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+
+    /* ============================================================
+       RESPONSIVE TWEAKS
+    ============================================================ */
+    @media (max-width: 480px) {
+      .events-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .event-card  { padding: 20px 14px; }
+    }
+    @media (max-width: 360px) {
+      .events-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 1024px) {
+      /* On large screens use the landscape SVG */
+      .hero-svg-bg { object-position: center center; }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+
+    <!-- SVG background: phone gets portrait, wider screens get landscape -->
+    <picture>
+      <source media="(min-width: 768px)"
+              srcset="Cream_and_Green_Indian_Traditional_Wedding_Invitation__Website_.svg">
+      <img class="hero-svg-bg"
+           src="Cream_and_Green_Indian_Traditional_Wedding_Invitation.svg"
+           alt="Wedding invitation illustration">
+    </picture>
+
+    <!-- Animated petals particles -->
+    <div class="petals" aria-hidden="true">
+      <div class="petal"><svg viewBox="0 0 20 28" fill="none"><ellipse cx="10" cy="14" rx="7" ry="12" fill="#e8aab8" transform="rotate(-15 10 14)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 18 26" fill="none"><ellipse cx="9" cy="13" rx="6" ry="11" fill="#dfc07a" transform="rotate(20 9 13)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 22 30" fill="none"><ellipse cx="11" cy="15" rx="8" ry="13" fill="#c47b8a" opacity="0.75" transform="rotate(-30 11 15)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 16 24" fill="none"><ellipse cx="8" cy="12" rx="5.5" ry="10" fill="#f5d5dc" transform="rotate(10 8 12)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 20 28" fill="none"><ellipse cx="10" cy="14" rx="7" ry="12" fill="#dfc07a" opacity="0.8" transform="rotate(-20 10 14)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 18 26" fill="none"><ellipse cx="9" cy="13" rx="6" ry="11" fill="#e8aab8" transform="rotate(35 9 13)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 20 28" fill="none"><ellipse cx="10" cy="14" rx="7" ry="12" fill="#f5d5dc" opacity="0.85" transform="rotate(-5 10 14)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 24 32" fill="none"><ellipse cx="12" cy="16" rx="8" ry="14" fill="#c47b8a" opacity="0.65" transform="rotate(25 12 16)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 16 22" fill="none"><ellipse cx="8" cy="11" rx="5" ry="9" fill="#dfc07a" opacity="0.9" transform="rotate(-40 8 11)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 20 28" fill="none"><ellipse cx="10" cy="14" rx="7" ry="12" fill="#e8aab8" opacity="0.7" transform="rotate(15 10 14)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 18 26" fill="none"><ellipse cx="9" cy="13" rx="6" ry="11" fill="#f5d5dc" transform="rotate(-25 9 13)"/></svg></div>
+      <div class="petal"><svg viewBox="0 0 22 30" fill="none"><ellipse cx="11" cy="15" rx="7.5" ry="13" fill="#dfc07a" opacity="0.75" transform="rotate(8 11 15)"/></svg></div>
+    </div>
+
+    <!-- Text content -->
+    <div class="hero-content">
+      <h1>Sumukh <span class="hero-amp">&amp;</span> Adithi</h1>
+      <div class="hero-divider"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <p class="hero-date">May &nbsp; 03 &nbsp; 2026</p>
+    </div>
+
+    <a href="#welcome" class="scroll-arrow" aria-label="Scroll down">
+      <i class="fa fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WELCOME / DETAILS
+  ══════════════════════════════════════════ -->
+  <section id="welcome" class="welcome">
+    <!-- Animated background leaves -->
+    <div class="welcome-leaves" aria-hidden="true">
+      <div class="w-leaf">
+        <svg viewBox="0 0 50 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 2 C5 18 2 45 25 78 C48 45 45 18 25 2Z" fill="#3d7a35"/>
+          <line x1="25" y1="2" x2="25" y2="78" stroke="#2d5a27" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="w-leaf">
+        <svg viewBox="0 0 40 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 2 C4 14 2 36 20 62 C38 36 36 14 20 2Z" fill="#5a9e50"/>
+        </svg>
+      </div>
+      <div class="w-leaf">
+        <svg viewBox="0 0 35 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 2 C3 12 1 31 17 54 C33 31 31 12 17 2Z" fill="#2d5a27"/>
+          <line x1="17" y1="2" x2="17" y2="54" stroke="#5a9e50" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="w-leaf">
+        <svg viewBox="0 0 45 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2 C4 16 2 40 22 70 C42 40 40 16 22 2Z" fill="#3d7a35"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="welcome-inner">
+      <p class="section-label reveal">With joyful hearts</p>
+      <h2 class="reveal reveal-delay-1">
+        The wedding will be celebrated<br>
+        in traditional <span class="accent">South Indian</span> style.
+      </h2>
+      <div class="gold-rule reveal reveal-delay-2">
+        <div class="diamond"></div>
+        <div class="diamond"></div>
+        <div class="diamond"></div>
+      </div>
+      <p class="welcome-location reveal reveal-delay-2">May 3, 2026 — 10:21 AM</p>
+      <p class="welcome-location reveal reveal-delay-2">Noma Kalyana Vedika</p>
+      <p class="welcome-address reveal reveal-delay-3">Mallapur, Nacharam, Hyderabad, India</p>
+      <a class="maps-link reveal reveal-delay-3"
+         href="https://maps.app.goo.gl/yHn69GVSvWxpo4p98"
+         target="_blank">Open in Maps &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EVENTS
+  ══════════════════════════════════════════ -->
+  <section class="events-section">
+    <!-- Decorative animated leaf corners (inline SVG) -->
+    <div class="events-leaf-tl" aria-hidden="true">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 110 C10 40 80 10 110 10 C80 40 60 70 10 110Z" fill="#5a9e50" opacity="0.5"/>
+        <path d="M10 110 C30 60 70 30 110 10" stroke="#b8860b" stroke-width="1" opacity="0.4" fill="none"/>
+        <circle cx="110" cy="10" r="4" fill="#b8860b" opacity="0.6"/>
+        <circle cx="60" cy="55" r="2.5" fill="#b8860b" opacity="0.4"/>
+        <circle cx="10" cy="110" r="3" fill="#5a9e50" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="events-leaf-br" aria-hidden="true">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 110 C10 40 80 10 110 10 C80 40 60 70 10 110Z" fill="#5a9e50" opacity="0.5"/>
+        <path d="M10 110 C30 60 70 30 110 10" stroke="#b8860b" stroke-width="1" opacity="0.4" fill="none"/>
+        <circle cx="110" cy="10" r="4" fill="#b8860b" opacity="0.6"/>
+        <circle cx="10" cy="110" r="3" fill="#5a9e50" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <p class="section-label reveal">Join us for every moment</p>
+    <h2 class="reveal reveal-delay-1">The Celebrations</h2>
+
+    <div class="events-grid">
+      <div class="event-card reveal reveal-delay-1"
+           data-event="mehendi"
+           data-title="Mehendi"
+           data-date="May 2, 2026 · 5:00 PM"
+           data-location="Garden Courtyard"
+           data-desc="An intimate evening of henna artistry, music, and joy. The bride's hands and feet will be adorned with intricate mehndi patterns in celebration of new beginnings.">
+        <h3>Mehendi</h3>
+        <div class="event-divider"></div>
+        <p class="event-date">May 2 &nbsp;·&nbsp; 5:00 PM</p>
+        <p class="event-location">Garden Courtyard</p>
+        <button class="event-btn" onclick="openModal(this.parentElement)">View Details</button>
+      </div>
+
+      <div class="event-card reveal reveal-delay-2"
+           data-event="pellikoduku"
+           data-title="Pellikoduku"
+           data-date="May 2, 2026 · 8:00 PM"
+           data-location="Banquet Hall"
+           data-desc="The traditional Telugu groom's ceremony, filled with sacred rituals, family blessings, and joyful festivities welcoming Sumukh into this new chapter.">
+        <h3>Pellikoduku</h3>
+        <div class="event-divider"></div>
+        <p class="event-date">May 2 &nbsp;·&nbsp; 8:00 PM</p>
+        <p class="event-location">Banquet Hall</p>
+        <button class="event-btn" onclick="openModal(this.parentElement)">View Details</button>
+      </div>
+
+      <div class="event-card reveal reveal-delay-3"
+           data-event="wedding"
+           data-title="Wedding"
+           data-date="May 3, 2026 · 10:21 AM"
+           data-location="Noma Kalyana Vedika"
+           data-desc="The sacred union of Sumukh and Adithi, performed in full traditional South Indian style. The muhurtham (auspicious time) begins at 10:21 AM sharp — please be seated beforehand.">
+        <h3>Wedding</h3>
+        <div class="event-divider"></div>
+        <p class="event-date">May 3 &nbsp;·&nbsp; 10:21 AM</p>
+        <p class="event-location">Noma Kalyana Vedika</p>
+        <button class="event-btn" onclick="openModal(this.parentElement)">View Details</button>
+      </div>
+
+      <div class="event-card reveal reveal-delay-4"
+           data-event="reception"
+           data-title="Reception"
+           data-date="May 3, 2026 · Evening"
+           data-location="Reception Lawn"
+           data-desc="An evening celebration with dinner, music, and dancing to toast the newly married couple. Dress in your finest traditional or festive attire!">
+        <h3>Reception</h3>
+        <div class="event-divider"></div>
+        <p class="event-date">May 3 &nbsp;·&nbsp; Evening</p>
+        <p class="event-location">Reception Lawn</p>
+        <button class="event-btn" onclick="openModal(this.parentElement)">View Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ACCOMMODATION
+  ══════════════════════════════════════════ -->
+  <section class="accommodation">
+    <div class="accommodation-inner">
+      <p class="section-label reveal">Where to stay</p>
+      <h2 class="reveal reveal-delay-1">
+        Staying <span class="accent">with us</span><br>or nearby
+      </h2>
+      <div class="gold-rule reveal reveal-delay-2">
+        <div class="diamond"></div>
+        <div class="diamond"></div>
+        <div class="diamond"></div>
+      </div>
+      <p class="reveal reveal-delay-2">
+        We are planning to camp the night of the wedding — but if you'd prefer a roof over your head,
+        please take a look at <a class="text-link" href="location.html">our accommodation suggestions</a>.
+      </p>
+      <p class="reveal reveal-delay-3">
+        If you are travelling from Stockholm and would like us to bring your tent along, just let us know when you RSVP.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       RSVP CTA
+  ══════════════════════════════════════════ -->
+  <section class="rsvp-section">
+    <!-- Decorative petal illustrations -->
+    <div class="petal-left" aria-hidden="true">
+      <svg viewBox="0 0 160 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 10 C20 50 10 130 80 230 C150 130 140 50 80 10Z" fill="#3d7a35"/>
+        <line x1="80" y1="10" x2="80" y2="230" stroke="#2d5a27" stroke-width="2"/>
+        <path d="M80 60 C50 80 40 110 80 150" stroke="#5a9e50" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M80 60 C110 80 120 110 80 150" stroke="#5a9e50" stroke-width="1.2" fill="none" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="petal-right" aria-hidden="true">
+      <svg viewBox="0 0 160 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 10 C20 50 10 130 80 230 C150 130 140 50 80 10Z" fill="#3d7a35"/>
+        <line x1="80" y1="10" x2="80" y2="230" stroke="#2d5a27" stroke-width="2"/>
+        <path d="M80 60 C50 80 40 110 80 150" stroke="#5a9e50" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <path d="M80 60 C110 80 120 110 80 150" stroke="#5a9e50" stroke-width="1.2" fill="none" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="rsvp-inner">
+      <p class="section-label reveal">You are warmly invited</p>
+      <h2 class="reveal reveal-delay-1">
+        We hope you'll<br>join us on this<br>
+        <span class="accent">special day</span>
+      </h2>
+      <div class="gold-rule reveal reveal-delay-2">
+        <div class="diamond"></div>
+        <div class="diamond"></div>
+        <div class="diamond"></div>
+      </div>
+      <p class="reveal reveal-delay-2">Please let us know if you can make it.</p>
+      <a class="rsvp-btn reveal reveal-delay-3"
+         href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAa8nI3dUN0tCVUtMUzBRQjVTMkUwU0dXU1oyVkFGRS4u"
+         target="_blank">Confirm Attendance</a>
+      <p class="rsvp-deadline reveal reveal-delay-4">Kindly respond before April 7, 2026</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       GIFT / FOOTER
+  ══════════════════════════════════════════ -->
+  <section class="gift-section">
+    <p class="reveal">
+      Your presence is <span class="accent">the most important gift</span> of all.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EVENT DETAIL MODAL
+  ══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <h3 id="modal-title">Event</h3>
+      <div class="modal-divider"></div>
+      <p class="detail-label">Date &amp; Time</p>
+      <p id="modal-date"></p>
+      <p class="detail-label">Location</p>
+      <p id="modal-location"></p>
+      <p class="detail-label">About</p>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <script>
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Modal ── */
+    function openModal(card) {
+      document.getElementById('modal-title').textContent    = card.dataset.title;
+      document.getElementById('modal-date').textContent     = card.dataset.date;
+      document.getElementById('modal-location').textContent = card.dataset.location;
+      document.getElementById('modal-desc').textContent     = card.dataset.desc;
+      document.getElementById('modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+
+</body>
+</html>

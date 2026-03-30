@@ -1,0 +1,180 @@
+/* =========================
+   EVENTS SECTION STYLES
+   Garden Window Cards 🌿
+========================= */
+.events-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* =========================
+   GRID (2 x 2)
+========================= */
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 4rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   EVENT CARD - WINDOW STYLE
+========================= */
+
+.event-card {
+    position: relative;
+    padding: 1.5rem 1rem;
+    border-radius: 40px;
+
+    /* soft glass / window look */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    box-shadow: var(--shadow-1-elevation-medium);
+
+    overflow: hidden;
+    transition: all 0.4s ease;
+
+    animation: fadeUp 1s ease both;
+}
+
+.event-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-1-elevation-high);
+}
+
+
+/* =========================
+   CREEPING PLANTS 🌿
+========================= */
+
+/* top-left vine */
+.event-card::before {
+    content: "";
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    width: 140px;
+    height: 140px;
+
+    background: url('assets/Foglie.png') no-repeat center/contain;
+    transform: rotate(-15deg);
+
+    opacity: 0.9;
+}
+
+/* bottom-right vine */
+.event-card::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    right: -35px;
+    width: 140px;
+    height: 140px;
+
+    background: url('assets/Fiori.png') no-repeat center/contain;
+    transform: rotate(20deg);
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   INNER WINDOW FRAME
+========================= */
+
+.event-card .event-content {
+    position: relative;
+    z-index: 2;
+
+    padding: 1.5rem;
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.4);
+
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+
+
+/* =========================
+   TEXT STYLING (MATCH THEME)
+========================= */
+
+.event-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--green);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-content .date,
+.event-content .location {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin: 0.4rem 0;
+}
+
+
+/* Divider (smaller version of yours) */
+.event-card .divider {
+    width: 40px;
+    margin: 0.8rem auto 1rem;
+    border-bottom: solid 1.5px var(--green);
+}
+
+
+/* =========================
+   BUTTON (THEME STYLE)
+========================= */
+
+.event-content button {
+    margin-top: 1.2rem;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+
+    background: var(--green);
+    color: white;
+
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.85rem;
+
+    box-shadow: var(--shadow-1-elevation-low);
+    transition: all 0.4s ease;
+}
+
+.event-content button:hover {
+    background: var(--red);
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   ANIMATION (FADE UP)
+========================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
