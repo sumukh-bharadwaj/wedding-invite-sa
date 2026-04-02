@@ -72,40 +72,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Language Toggle Button ── */
-    .lang-toggle {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      z-index: 2000;
-      background: var(--cream);
-      border: 1px solid var(--gold);
-      padding: 10px 16px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-dark);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .lang-toggle:hover {
-      background: var(--gold);
-      color: var(--cream);
-      transform: scale(1.05);
-    }
-    .lang-toggle span {
-      display: inline-block;
-      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    .lang-toggle.flipped span {
-      transform: rotateY(360deg);
-    }
-
     /* ── Text Translation Classes ── */
     .translatable {
       transition: opacity 0.3s ease;
@@ -622,11 +588,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ════════════════════ LANGUAGE TOGGLE ════════════════════ -->
-  <a href="index-te.html" class="lang-toggle" aria-label="Switch to Telugu">
-    తెలుగు
-  </a>
 
   <!-- ════════════════════ HERO ════════════════════ -->
   <section class="hero">
