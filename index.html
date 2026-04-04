@@ -16,6 +16,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/favicon.ico">
+
 </head>
 <body>
 
@@ -173,7 +175,7 @@
         <div class="event-card reveal reveal-d4">
           <h3>May 4</h3>
           <div class="event-div"></div>
-          <div class="event-item"
+          <!-- <div class="event-item"
                data-title="Satyanarayana Puja"
                data-date="May 4, 2026 · 10:00 AM"
                data-location="Koride's Home"
@@ -186,7 +188,7 @@
               <button class="event-btn" onclick="openModal(this.closest('.event-item'))">Details</button>
             </div>
           </div>
-          <div class="event-div" style="margin:12px 0"></div>
+          <div class="event-div" style="margin:12px 0"></div> -->
           <div class="event-item"
                data-title="Reception"
                data-date="May 4, 2026 · Evening"
@@ -306,16 +308,16 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
     // Music
-    const music = document.getElementById('bg-music');
-    const btn   = document.getElementById('music-btn');
-    let playing = false;
-    music.volume = 0.12;
-    function toggleMusic() {
-      playing ? music.pause() : music.play();
-      playing = !playing;
-      btn.textContent      = playing ? '■' : '♪';
-      btn.style.background = playing ? 'var(--gold-pale)' : 'var(--cream)';
-    }
+    //const music = document.getElementById('bg-music');
+    //const btn   = document.getElementById('music-btn');
+    //let playing = false;
+    //music.volume = 0.12;
+    //function toggleMusic() {
+    //  playing ? music.pause() : music.play();
+      //playing = !playing;
+      //btn.textContent      = playing ? '■' : '♪';
+      //btn.style.background = playing ? 'var(--gold-pale)' : 'var(--cream)';
+    //} 
   </script>
 
 </body>
